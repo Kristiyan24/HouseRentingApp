@@ -244,3 +244,4 @@ namespace HouseRentingSystem.Services.Houses
               .Take(3);
     }
 }
+
