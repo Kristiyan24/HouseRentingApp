@@ -31,19 +31,19 @@ namespace HouseRentingSystem.Services.Houses
 
         public HouseDetailsServiceModel HouseDetailsById(int id)
         {
-            // var dbHouse = this.data
-            //     .Houses
-            //     .Include(h => h.Category)
-            //     .Include(h => h.Agent.User)
-            //     .Where(h => h.Id == id)
-            //     .FirstOrDefault();
+            var dbHouse = this.data
+                .Houses
+                .Include(h => h.Category)
+                .Include(h => h.Agent.User)
+                .Where(h => h.Id == id)
+                .FirstOrDefault();
 
-            // var house = this.mapper.Map<HouseDetailsServiceModel>(dbHouse);
+            var house = this.mapper.Map<HouseDetailsServiceModel>(dbHouse);
 
-            // var agent = this.mapper.Map<AgentServiceModel>(dbHouse.Agent);
-            // agent.FullName = this.users.UserFullName(dbHouse.Agent.UserId);
+            var agent = this.mapper.Map<AgentServiceModel>(dbHouse.Agent);
+            agent.FullName = this.users.UserFullName(dbHouse.Agent.UserId);
 
-            // house.Agent = agent;
+            house.Agent = agent;
 
             return house;
         }
